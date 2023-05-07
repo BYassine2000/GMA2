@@ -1,0 +1,114 @@
+<!--<?php
+
+
+/*class Modele{//CONNEXION bdd, insertion et mise à jour
+	private $pdo;
+	private $table;
+
+public function __construct($serveur,$bdd,$user,$mdp){
+	$this->$pdo= null;
+
+try{
+	$this->pdo = new PDO("mysql:host=".$serveur.";dbname=".$bdd,$user,$mdp );//CONNEXION à la BDD
+
+}
+catch (PDOException $exp)
+			{
+				echo "Erreur de connexion à la BDD.";
+			}
+		}
+
+public function setTable($table){
+     $this->$table=$table;
+}
+public function selectAll($chaine)
+			{
+				$requete = "select ".$chaine." from ".$this->table; 
+				$select = $this->pdo->prepare ($requete);
+				$select->execute();
+				return $select->fetchAll();
+			}/* requête d'extraction ou methode PDO*/
+
+		public function selectWhere($chaine,$where)
+		{
+			$donnees = array();
+
+			foreach($where as $cle=>$valeur)
+			{
+				$champs[]=$cle."=:".$cle;
+				$donnees[":".$cle]=$valeur;
+			}
+
+			$chaineWhere = implode(" and "/*glue*/,$champs);
+
+			$requete = "select ".$chaine." from ".$this->table." where ".$chaineWhere.";"; //$this->table
+				$select = $this->pdo->prepare ($requete);
+				$select->execute($donnees);
+				return $select->fetch();
+		}
+
+		public function insert ($tab)
+		{
+			$chaine = array();
+			$donnees = array();
+
+			foreach($tab as $cle=>$valeur)
+			{
+				$champs[]=":".$cle;
+				$donnees[":".$cle]=$valeur;
+			}
+
+			$chaine = implode(","/*glue*/,$champs);
+
+			$requete = "insert into ".$this->table."
+			values(null,".$chaine.");";
+			$insert = $this->pdo->prepare($requete); //$insert prend la requete
+			$insert->execute($donnees);//remplace le $chaine de $insert par $donnees
+		}
+
+		public function delete($where)
+		{
+			$chaine = array();
+			$donnees = array();
+
+			foreach($where as $cle=>$valeur)
+			{
+				$champs[]=$cle."=:".$cle;
+				$donnees[":".$cle]=$valeur;
+			}
+
+			$chaine = implode(" and "/*glue*/,$champs);
+			$requete = "delete from ".$this->table." where ".$chaine;
+			$delete = $this->pdo->prepare($requete);
+			$delete->execute($donnees);
+		}
+
+		/*public function update($tab,$where)
+		{
+			$champs = array();
+			$donnees = array();
+
+			foreach($tab as $cle=>$valeur)
+			{
+				$champs[]=$cle."=:".$cle;
+				$donnees[":".$cle]=$valeur;
+			}
+			$chaine = implode(","/*glue*/,$champs);
+
+			/*foreach($where as $cle=>$valeur)
+			{
+				$champsWhere[]=$cle."=:".$cle;
+				$donnees[":".$cle]=$valeur;
+			}
+
+			$chaineWhere = implode(","/*glue*/,$champsWhere);
+
+			$requete = "update ".$this->table." set ".$chaine."
+			where ".$chaineWhere;
+			$update = $this->pdo->prepare($requete); //$insert prend la requete
+			$update->execute($donnees);//remplace le $chaine de $insert par $donnees  
+		}
+	}
+?>
+
+?>-->
